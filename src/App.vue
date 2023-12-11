@@ -17,7 +17,7 @@
 </template>
 
 
-<script>ß
+<script>
 
 /*mport MaterialList from './components/MaterialList.vue'*/
 import CategoriesList from './components/CategoriesList.vue'

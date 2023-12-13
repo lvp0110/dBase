@@ -2,10 +2,10 @@
     <div class="row justify-content-center">
         <div   class="col-15" style="margin-top:10px;">
             <div v-if="categories.length" class="list-group">
-                <input  type="text" class="form-control" placeholder="Поиск.." v-model="search_constr" style="margin-bottom:10px;"> 
+                <input  type="text" class="form-control" placeholder="Поиск.." @input="$emit('search', $event.target.value)" style="margin-bottom:10px;"> 
 
-                <CategoryRow v-for="category in getSearch" :key="category.id" :category="category" />
-               
+
+                <slot></slot>            
             </div>
 
             <h2 v-else class="text-muted">Data not found</h2>
@@ -17,31 +17,12 @@
 
 import CategoryRow from './CategoryRow.vue'
 
+
 export default {
     components: {
-        CategoryRow
+        CategoryRow        
     },
-    props: ['categories'],
-    
-    data()
-    {
-    return {
-      category: [],
-      
-      search_constr: '',
-        }
-    }, 
-      computed: {
-        getSearch()
-        {
-            if(this.search_constr != '')
-                return this.categories.filter((el) => el.Name.toLowerCase().includes(this.search_constr.toLowerCase()));
-
-            return this.categories;
-        },
-        
-  },
-   
+    props: ['categories']
     
 }
 </script>

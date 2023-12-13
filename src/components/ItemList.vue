@@ -1,22 +1,24 @@
 <template>
     
-        <div v-if="items.length" class="list-group list-group-flush list-group-item-light" >
-          
-        <div class="list-group list-group-flush " > 
-        <div class="list-group-item list-group-item-action" style="background:rgb(50, 50, 50);">
-        <p class="description" >{{ cat.Description }}</p>
-        <img  :src="imagePath" alt=""> 
-        <ul>Характеристики
-        <li>Толщина: {{ cat.Thickness }} мм</li>
-        <li v-if="visiblRw">Rw ≈ {{ cat.SoundIndex }} дБ</li>
-        <li v-if="visiblLnw" >Lnw ≈ {{ cat.ImpactNoseIndex}} дБ</li>
-        </ul>
-        <br>
-        <p class="specification" > {{ cat.Specification }}</p>
-        </div>
-        <h6>Материалы:</h6>
-        <div class="list-group-item list-group-item-action " style="cursor: pointer;background:rgb(50, 50, 50);color: white;" v-for="item in items" :key="item.Code">{{ item.Name }}</div>
-        </div>
+      <div v-if="items.length" class="list-group list-group-flush list-group-item-light" >
+         <div class="list-group list-group-flush " > 
+            <div class="list-group-item list-group-item-action" style="background:rgb(74, 73, 73);">
+               <p class="description" >{{ cat.Description }}</p>
+               <img  :src="imagePath" alt=""> 
+               <ul>Характеристики:
+                  <li>Толщина: {{ cat.Thickness }} мм</li>
+                  <li v-if="visiblRw">Rw ≈ {{ cat.SoundIndex }} дБ</li>
+                  <li v-if="visiblLnw" >Lnw ≈ {{ cat.ImpactNoseIndex}} дБ</li>
+               </ul>
+               <br>
+               <p class="specification" > {{ cat.Specification }}</p>
+            </div>
+               <h6 style="margin-top: 8px;">Материалы:</h6>
+            <div class="list-group-item list-group-item-action " 
+               style="cursor: pointer;background:rgb(74, 73, 73);color: white;" v-for="item in items" :key="item.Code">
+                  {{ item.Name }}
+            </div>
+         </div>
         </div>
    
 </template>
@@ -44,8 +46,7 @@ export default {
          visiblRw(){
          if(this.cat.SoundIndex != 'неопределен')
            return true;
-        },
-     
+        }
       
     },
     methods:{

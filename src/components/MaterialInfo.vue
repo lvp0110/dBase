@@ -6,9 +6,10 @@
                 <p class="description" >{{ material.Description }}</p>
                 <img  :src="imagePath" alt="" > 
                     <ul >Характеристики:
-                        <li v-if="material.Length !=0">Длина = {{ material.Length }} мм</li>
-                        <li v-if="material.Width !=0"> Ширина = {{ material.Width}} мм</li>
-                        <li v-if="material.Height !=0">Толщина = {{ material.Height}} мм</li>
+                        <li v-if="material.Length !=0">Длина: {{ material.Length }} мм</li>
+                        <li v-if="material.Width !=0"> Ширина: {{ material.Width}} мм</li>
+                        <li v-if="material.Height !=0">Толщина: {{ material.Height}} мм</li>
+                        <li v-if="material.Weight !=0">{{ material.Weight}} </li>
                     </ul>
                 <br>
                 <p class="specification" > {{ material.Specification }}</p>

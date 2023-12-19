@@ -19,7 +19,7 @@
     </div>
 
 </template>
-
+{{ filterVariable(Material.Code)}}
 <script>
 
 export default {
@@ -32,8 +32,7 @@ export default {
             unvisible:true, 
             }
         },
-
-
+        
         computed:{
             imagePath(){
                 return this.imageFolder + this.material.Img
@@ -44,8 +43,6 @@ export default {
         props: ['material']
  
 } 
-
-
 
 </script>
 

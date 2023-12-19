@@ -3,7 +3,7 @@
             @click="toggleInfo" 
             class="list-group-item  list-group-item-action" style="color:white;background:rgb(39, 38, 38);"
         >
-        <h6 >{{ category.Code }} | {{ category.Name }} </h6>
+        <h6 >{{ filterVariable(category.Code) }} | {{ category.Name }} </h6>
 
         <div v-if="visible">
             <slot></slot>
@@ -32,6 +32,14 @@ export default {
         }
     },
     methods: {
+        filterVariable(variable) {
+            // Проверяем, является ли первый символ цифрой
+            if (/^\d/.test(variable)||variable.startsWith('AG')) {
+              return variable;
+            } else {
+              return "---";
+            }
+          },
        toggleInfo()
        {
             this.visible = !this.visible;
